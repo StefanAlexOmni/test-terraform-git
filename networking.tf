@@ -14,3 +14,14 @@ resource "aws_subnet" "terraform_subnet_1" {
       aws_vpc.terraform_vpc
     ]
 }
+
+resource "aws_subnet" "terraform_subnet_2" {
+    vpc_id = aws_vpc.terraform_vpc.id
+    cidr_block = "192.168.2.0/24"
+    tags = {
+      "Name" = "terraform_subnet_2_bygitaction"
+    }
+    depends_on = [
+      aws_vpc.terraform_vpc
+    ]
+}
